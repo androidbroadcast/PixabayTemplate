@@ -1,12 +1,14 @@
 package dev.androidbroadcast.pixabaytemplate.api
 
 import dev.androidbroadcast.pixabaytemplate.api.data.SearchResponse
-import retrofit2.Call
+
+
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface PixabayService {
 
-    // https://pixabay.com/api/docs/#api_search_images
-    @GET("/")
-    fun search(apiKey: String, query: String): Call<SearchResponse>
+    @GET("/api")
+    suspend fun search(@Query("key") apiKey: String, @Query("q") query: String): SearchResponse
+
 }
